@@ -3,8 +3,8 @@ import React, {Component} from 'react'
 export default class NewTask extends Component{
   constructor(){
     super()
-    this.state = {
-      userInput: '',
+    this.state ={
+      userInput: ''
     }
   }
 
@@ -12,7 +12,7 @@ export default class NewTask extends Component{
     this.setState({userInput: val})
   }
 
-  addItem(){
+  addTask(){
     this.props.add(this.state.userInput)
     this.setState({userInput: ''})
   }
@@ -20,14 +20,14 @@ export default class NewTask extends Component{
   render(){
     return(
       <div>
-        <input placeholder="new item"
+        <input placeholder="new task"
         value={this.state.userInput}
         onChange={e => {
           this.handleChange(e.target.value)
         }}></input>
         <button
         onClick={() => {
-          this.addItem()
+          this.addTask()
         }}>Add Item</button>
       </div>
     )

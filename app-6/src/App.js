@@ -6,17 +6,35 @@ import Todo from './Components/Todo'
 class App extends Component {
   constructor(){
     super()
-    this.state = {}
+    this.state = {
+      userInput: '',
+      list: []
+    }
   }
 
-  handleChange(val){}
-  addItem(){}
+  handleChange(val){
+    this.setState({userInput: val})
+  }
+  addItem(){
+    this.setState({list: [...this.state.list, this.state.userInput]})
+  }
 
   render(){
+    let htmlList = this.state.list.map((element, index) => {
+      return <Todo key={index} task={element}/>
+    })
     return (
       <div className="App">
-        <input placeholder="item"></input>
-        <button>Add</button>
+        <h1>My to-do list:</h1>
+        <input placeholder="item"
+        onChange={e => {
+          this.handleChange(e.target.value)
+        }}></input>
+        <button
+        onClick={() => {
+          this.addItem()
+        }}>Add</button>
+        {htmlList}
         <Todo/>
       </div>
     );

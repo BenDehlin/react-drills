@@ -7,7 +7,6 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      userInput: '',
       list: []
     }
     this.handleAdd = this.handleAdd.bind(this)

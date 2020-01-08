@@ -1,14 +1,21 @@
 import React, {Component} from 'react'
 
+
 export default class Todo extends Component{
   constructor(){
     super()
-    this.state = {}
+    this.state = {
+
+    }
+  }
+
+  deleteItem(){
+
   }
 
   render(){
     return(
-      <div>{this.props.task}</div>
+        <p>{this.props.item}</p>
     )
   }
 }
