@@ -1,35 +1,29 @@
-import React, {Component} from 'react';
-import './App.css';
+import React, {Component} from 'react'
 import NewTask from './Components/NewTask'
 import List from './Components/List'
 
-class App extends Component {
+
+class App extends Component{
   constructor(){
     super()
     this.state = {
-      list: []
+      array:[]
     }
     this.handleAdd = this.handleAdd.bind(this)
   }
 
-  handleAdd(task){
-    this.setState({list: [...this.state.list, task]})
+  handleAdd(todo){
+    this.setState({array: [...this.state.array, todo]})
   }
 
-  // handleDelete(index){
-  //   let arr = this.state.list.splice()
-  //   arr.splice(index, 1)
-  //   this.setState({list: arr})
-  // }
-
   render(){
-    return (
-      <div className="App">
+    return(
+      <div>
         <NewTask add={this.handleAdd}/>
-        <List list={this.state.list}/> {/* delete={this.handleDelete}/> */}
+        <List list={this.state.array}/>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

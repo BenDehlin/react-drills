@@ -1,18 +1,20 @@
 import React, {Component} from 'react'
 
-export default class NewTask extends Component{
+
+class NewTask extends Component{
   constructor(){
     super()
-    this.state ={
+    this.state = {
       userInput: ''
     }
+    this.addItem = this.addItem.bind(this)
   }
 
   handleChange(val){
     this.setState({userInput: val})
   }
 
-  addTask(){
+  addItem(){
     this.props.add(this.state.userInput)
     this.setState({userInput: ''})
   }
@@ -20,16 +22,18 @@ export default class NewTask extends Component{
   render(){
     return(
       <div>
-        <input placeholder="new task"
-        value={this.state.userInput}
+        <input value={this.state.userInput}
+        placeholder="new item"
         onChange={e => {
           this.handleChange(e.target.value)
         }}></input>
-        <button
+        <button 
         onClick={() => {
-          this.addTask()
-        }}>Add Item</button>
+          this.addItem()
+        }}>Add</button>
       </div>
     )
   }
 }
+
+export default NewTask

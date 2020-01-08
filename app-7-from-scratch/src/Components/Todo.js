@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 
-export default class Todo extends Component{
+class Todo extends Component{
   constructor(){
     super()
     this.state = {
@@ -9,13 +9,11 @@ export default class Todo extends Component{
     }
   }
 
-  deleteItem(){
-
-  }
-
   render(){
     return(
-        <p>{this.props.item}</p>
+      <h1>{this.props.todo}</h1>
     )
   }
 }
+
+export default Todo
