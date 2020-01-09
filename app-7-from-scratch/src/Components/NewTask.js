@@ -1,20 +1,15 @@
 import React, {Component} from 'react'
 
-
 class NewTask extends Component{
   constructor(){
     super()
-    this.state = {
+    this.state ={
       userInput: ''
     }
-    // this.addItem = this.addItem.bind(this)
   }
 
-  handleChange = (e) => {
-    const {name, value} = e.target
-    this.setState({[name]: value})
-  }
-  addItem(){
+  handleChange=({name, value}) =>{this.setState({[name]: value})}
+  addItem=()=>{
     this.props.add(this.state.userInput)
     this.setState({userInput: ''})
   }
@@ -23,15 +18,11 @@ class NewTask extends Component{
     return(
       <div>
         <input value={this.state.userInput}
-        name='userInput'
-        placeholder='add todo'
-        onChange = {e => {
-          this.handleChange(e)
-        }}/>
+        name="userInput"
+        placeholder="new item"
+        onChange={e=>{this.handleChange(e.target)}}></input>
         <button
-        onClick = {() => {
-          this.addItem()
-        }}>Add Todo</button>
+        onClick={()=>{this.addItem()}}>Add Item</button>
       </div>
     )
   }

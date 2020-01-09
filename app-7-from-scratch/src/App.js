@@ -1,26 +1,24 @@
 import React, {Component} from 'react'
-import List from './Components/List'
 import NewTask from './Components/NewTask'
-
+import List from './Components/List'
 
 class App extends Component{
   constructor(){
     super()
     this.state = {
-      array: []
+      list: []
     }
-    this.handleAdd = this.handleAdd.bind(this)
   }
 
-  handleAdd(task){
-    this.setState({array: [...this.state.array, task]})
+  handleAdd=(val)=>{
+    this.setState({list: [...this.state.list, val]})
   }
 
   render(){
     return(
       <div>
         <NewTask add={this.handleAdd}/>
-        <List list={this.state.array}/>
+        <List list={this.state.list}/>
       </div>
     )
   }

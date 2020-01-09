@@ -1,10 +1,4 @@
 import React from 'react'
-
-
-const Todo = (props) => {
-  return(
-    <h1>{props.todo}</h1>
-  )
+export default function Todo(props){
+  return <h1>{props.item}</h1>
 }
-
-export default Todo
